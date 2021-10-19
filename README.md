@@ -139,7 +139,7 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-015-b-project-trybetunes`.
+  * `git clone git@github.com:tryber/sd-015-b-project-trybetunes.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-015-b-project-trybetunes`
 
