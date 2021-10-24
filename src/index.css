@@ -17,3 +17,8 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+}
