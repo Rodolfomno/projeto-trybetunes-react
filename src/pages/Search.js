@@ -15,6 +15,12 @@ class Search extends React.Component {
     });
   }
 
+  handleButton = () => {
+    this.setState({
+      name: '',
+    });
+  }
+
   render() {
     const { name } = this.state;
     return (
@@ -33,6 +39,7 @@ class Search extends React.Component {
               <button
                 type="button"
                 data-testid="search-artist-button"
+                onClick={ this.handleButton }
                 disabled={ name.length <= 1 }
               >
                 Pesquisar
