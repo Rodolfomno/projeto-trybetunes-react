@@ -1,6 +1,7 @@
 import React from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+import Nav from './nav';
 
 class Header extends React.Component {
   constructor() {
@@ -25,6 +26,7 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         {loading ? <Loading /> : <h1 data-testid="header-user-name">{name}</h1>}
+        <Nav />
       </header>
     );
   }

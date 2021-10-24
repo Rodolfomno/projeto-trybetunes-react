@@ -5,12 +5,9 @@ class Nav extends React.Component {
   render() {
     return (
       <div className="nav-bar">
-        <Link to="/login">Login</Link>
-        <Link to="/Search">Search</Link>
-        <Link to="/Album">Album</Link>
-        <Link to="/favorites">Favorites</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/profile-edit">Profile-edit</Link>
+        <Link to="/search" data-testid="link-to-search">Search</Link>
+        <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
+        <Link to="/profile" data-testid="link-to-profile">Profile</Link>
       </div>
     );
   }
