@@ -35,10 +35,12 @@ class Login extends React.Component {
     const { name, loading, redirect } = this.state;
     if (loading) return <Loading />;
     if (redirect) return <Redirect to="/search" />;
+
     return (
       <div data-testid="page-login">
         <h3>Login</h3>
         <form>
+
           <label htmlFor="login-name-input">
             Nome:
             <input
@@ -49,6 +51,7 @@ class Login extends React.Component {
               value={ name }
             />
           </label>
+
           <button
             type="button"
             data-testid="login-submit-button"
@@ -57,6 +60,7 @@ class Login extends React.Component {
           >
             Entrar
           </button>
+
         </form>
       </div>
     );
