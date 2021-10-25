@@ -70,13 +70,13 @@ class Search extends React.Component {
             </h3>
             { albums.length === 0 && <p>Nenhum álbum foi encontrado</p> }
             <ul>
-              {albums.map((album) => (
-                <li key={ album.collectionId }>
+              {albums.map(({ collectionId, collectionName }) => (
+                <li key={ collectionId }>
                   <Link
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                    to={ `/album/${album.collectionId}` }
+                    data-testid={ `link-to-album-${collectionId}` }
+                    to={ `/album/${collectionId}` }
                   >
-                    {album.collectionName}
+                    {collectionName}
                   </Link>
                 </li>
               ))}
