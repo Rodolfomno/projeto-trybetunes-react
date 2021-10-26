@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import Loading from '../components/Loading';
 
 class Album extends React.Component {
   constructor() {
@@ -10,11 +12,14 @@ class Album extends React.Component {
     this.state = {
       musics: [],
       response: false,
+      favoritesSongs: [],
+      loading: true,
     };
   }
 
   componentDidMount() {
     this.apiAnswer();
+    this.getFavorite();
   }
 
   apiAnswer = () => {
@@ -29,12 +34,27 @@ class Album extends React.Component {
     });
   }
 
+  getFavorite = () => {
+    getFavoriteSongs().then((favorites) => {
+      this.setState({
+        favoritesSongs: favorites,
+        loading: false,
+      });
+    });
+  }
+
+  checkSong(checkSong) {
+    const { favoritesSongs } = this.state;
+    const { trackId } = checkSong;
+    return favoritesSongs.some((song) => song.trackId === trackId);
+  }
+
   render() {
-    const { response, musics } = this.state;
+    const { response, musics, loading } = this.state;
     return (
       <>
         <Header />
-        <div musics-testid="page-album">
+        <div data-testid="page-album">
 
           { response && (
             <h2 data-testid="artist-name">
@@ -48,10 +68,11 @@ class Album extends React.Component {
             </h2>
           )}
 
-          {musics.map((music) => music.kind && <MusicCard
+          {loading ? <Loading /> : (musics.map((music) => music.kind && <MusicCard
             key={ music.trackId }
             info={ music }
-          />)}
+            favorite={ this.checkSong(music) }
+          />))}
         </div>
       </>
     );
