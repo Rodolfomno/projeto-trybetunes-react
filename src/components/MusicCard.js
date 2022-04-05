@@ -20,6 +20,7 @@ class MusicCard extends React.Component {
     const { info } = this.props;
 
     this.setState({ loading: true });
+
     if (target.checked) {
       addSong(info).then(() => { this.setState({ loading: false, favorite: true }); });
     }
